@@ -1,7 +1,8 @@
 import os
 import streamlit as st
 from components.sidebar import sidebar
-import streamlit_mermaid as stmd
+#import streamlit_mermaid as stmd
+from functions.stmd import st_mermaid
 
 from st_pages import Page, show_pages, Section, add_page_title
 #add_page_title()
@@ -23,10 +24,11 @@ sequenceDiagram
     Server-->>Client: Response (Status Update Successful)
 """
 
-code = """
-    graph LR
-    A[Start] --> B(Mermaid World) --> C(Underwater City) --> D(Mermaid's Home)
-"""
+# code = """
+#     graph LR
+#     A[Start] --> B(Mermaid World) --> C(Underwater City) --> D(Mermaid's Home)
+# """
 
-mermaid = stmd.st_mermaid(code)
-st.write(mermaid)
+mermaid = st_mermaid(code)
+#st.write(mermaid)
+#st.write(code)
