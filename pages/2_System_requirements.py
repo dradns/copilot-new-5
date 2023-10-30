@@ -20,6 +20,10 @@ question = st.text_input(
 
 sidebar()
 
+with st.expander("See explanation"):
+    st.write("hop pa")
+
+
 if uploaded_file and question and not anthropic_api_key:
     st.info("Please add your Anthropic API key to continue.")
 

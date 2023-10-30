@@ -6,7 +6,7 @@ from st_pages import Page, show_pages, Section, add_page_title
 from functions.llama2 import model_response
 from huggingface_hub import InferenceClient
 
-add_page_title()
+#add_page_title()
 
 show_pages(
     [
@@ -28,6 +28,20 @@ show_pages(
 #st.set_page_config(page_title="DAAS", page_icon="📖", layout="wide")
 #st.header("📖User Story")
 #SUBHEADER
+
+#st.video("https://www.youtube.com/watch?v=ovtxI75g34g")
+
+with st.expander("Задача страницы"):
+    st.write("Привет")
+    st.image("https://static.streamlit.io/examples/dice.jpg")
+
+with st.expander("Этапы выполнения"):
+    st.video("https://www.youtube.com/watch?v=ovtxI75g34g")
+
+with st.expander("Типичные ошибки"):
+    st.image("static/2023-10-30_16-10-05.png")
+
+
 st.warning("Lets write couple of user stories")
 
 #DECLARE BUTTON RESET HISTORY
@@ -41,10 +55,9 @@ st.button('Forgot context', on_click=clear_chat_history)
 # Render sidebar
 sidebar()
 
-api_key = st.session_state.get("API_KEY")
 #st.session_state["API_KEY"] = 'r8_5dXks0XSi27sUU4zxiCeKiYOB1wvfil3UZOxV'
-replicate_api = st.session_state.get("API_KEY")
-os.environ['REPLICATE_API_TOKEN'] = replicate_api
+#replicate_api = st.session_state.get("API_KEY")
+#os.environ['REPLICATE_API_TOKEN'] = replicate_api
 # print('API KEY')
 # print(st.session_state.get("API_KEY"))
 
@@ -76,3 +89,5 @@ if st.session_state.messages[-1]["role"] != "assistant":
             placeholder.markdown(full_response)
     message = {"role": "assistant", "content": full_response}
     st.session_state.messages.append(message)
+
+

@@ -12,12 +12,17 @@ def model_response(prompt_input):
     #string_dialogue = "You are a helpful assistant. You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'."
 
     role_rus = "Ты в роли опытного бизнес аналитика. Ты должен помочь пользователю написать USER STORY. You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'."
-    description_rus = "USER STORY это короткое простое описание фунционала, описанное от лица ПЕРСОНЫ, которая желает получить новые возможности системы. "
-    format_rus = "Как пользователь < тип ПОЛЬЗОВАТЕЛЯ >, Я хочу < такую-то ЦЕЛЬ > для того чтобы < определенная ПРИЧИНА/ПОТРЕБНОСТЬ >."
-    prompt_rus = "Помоги написать юзер стори для фичи в моем приложении. Фича похожа на сторисы в инстаграм."
-    language_rus = "Ты должен отвечать только на РУССКОМ языке."
+    description_rus = "USER STORY это короткое простое описание фунционала, описанное от лица ПЕРСОНЫ, которая желает получить новые возможности системы.\n"
+    format_rus = "Как пользователь < тип ПОЛЬЗОВАТЕЛЯ >, Я хочу < такую-то ЦЕЛЬ > для того чтобы < определенная ПРИЧИНА/ПОТРЕБНОСТЬ >.\n"
+    prompt_rus = "Помоги написать юзер стори для фичи в моем приложении. Фича похожа на сторисы в инстаграм.\n"
+    language_rus = "Ты должен отвечать только на РУССКОМ языке.\n"
+    instruct = "You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'. Ты должен отвечать в формате ОДНОЙ User Story. Не больше одного абзаца"
 
-    string_dialogue = "%s %s Формат должен быть такой: %s User promt: %s %s " % (role_rus, description_rus, format_rus, prompt_input, language_rus)
+    #example1 = "Вот первый пример идеальной User Story: как клиент магазина для взрослых, я хочу не указывать личные данные при регистрации, чтобы сохранить свою конфиденциальность.\n"
+
+    #example2 = "Вот второй пример идеальной User Story:Как менеджер ресторана, я хочу видеть больше фотографий блюд в меню, чтобы привлечь больше клиентов.\n"
+
+    string_dialogue = "%s %s Формат должен быть такой: %s Пользовательский запрос: %s %s %s" % (role_rus, description_rus, format_rus, prompt_input, language_rus, instruct)
 
     for dict_message in st.session_state.messages:
         if dict_message["role"] == "user":
@@ -37,7 +42,7 @@ gen_kwargs = dict(
     max_new_tokens=500,
     top_k=30,
     top_p=0.9,
-    temperature=0.2,
+    temperature=0.9,
     repetition_penalty=1.02,
     stream = False,
     details=False,
