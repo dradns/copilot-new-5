@@ -9,7 +9,16 @@ from huggingface_hub import InferenceClient
 
 #collecting context
 def model_response(prompt_input):
-    string_dialogue = "You are a helpful assistant. You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'."
+    #string_dialogue = "You are a helpful assistant. You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'."
+
+    role_rus = "Ты в роли опытного бизнес аналитика. Ты должен помочь пользователю написать USER STORY. You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'."
+    description_rus = "USER STORY это короткое простое описание фунционала, описанное от лица ПЕРСОНЫ, которая желает получить новые возможности системы. "
+    format_rus = "Как пользователь < тип ПОЛЬЗОВАТЕЛЯ >, Я хочу < такую-то ЦЕЛЬ > для того чтобы < определенная ПРИЧИНА/ПОТРЕБНОСТЬ >."
+    prompt_rus = "Помоги написать юзер стори для фичи в моем приложении. Фича похожа на сторисы в инстаграм."
+    language_rus = "Ты должен отвечать только на РУССКОМ языке."
+
+    string_dialogue = "%s %s Формат должен быть такой: %s User promt: %s %s " % (role_rus, description_rus, format_rus, prompt_input, language_rus)
+
     for dict_message in st.session_state.messages:
         if dict_message["role"] == "user":
             string_dialogue += "User: " + dict_message["content"] + "\n\n"
@@ -19,7 +28,7 @@ def model_response(prompt_input):
     print('--------------')
     return response2(string_dialogue, prompt_input)
 
-endpoint_url = "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf"
+endpoint_url = "https://api-inference.huggingface.co/models/meta-llama/Llama-2-70b-chat-hf"
 hf_token = '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'
 
 client = InferenceClient(endpoint_url, token=hf_token)
