@@ -7,9 +7,6 @@ notebooks/
 # Secrets
 .streamlit/secrets.toml
 
-# VSCode
-.vscode/
-
 # TODO
 TODO.md
 
