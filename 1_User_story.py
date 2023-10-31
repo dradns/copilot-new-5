@@ -8,26 +8,29 @@ from huggingface_hub import InferenceClient
 
 #add_page_title()
 
-show_pages(
-    [
-        Section("Business requirements", icon="👔 "),
-        Page("1_User_story.py", "User story", "🗣️"),
-        Page("pages/22_Use_cases.py", "Use case", "✒️"),
-        Section("System requirements", icon="⚙️️"),
-        Page("pages/2_System_requirements.py", "Use cases Chat_test", "🏠"),
-        Section("Acceptance criteria", icon="✔️️"),
-        Page("pages/3_Acceptance_criteria.py", "Use cases Chat_test", "🏠"),
-        Page("pages/5_Mermaid_test.py", "Mermaid", "🏠"),
-        Section("Settings", icon="✔️️"),
-        Page("pages/4_Settings.py", "Settings", "🏠"),
-
-    ]
-)
+# show_pages(
+#     [
+#         Section("Business requirements", icon="👔 "),
+#         Page("1_User_story.py", "User story", "🗣️"),
+#         Page("pages/22_Use_cases.py", "Use case", "✒️"),
+#         Section("System requirements", icon="⚙️️"),
+#         Page("pages/2_System_requirements.py", "Use cases Chat_test", "🏠"),
+#         Section("Acceptance criteria", icon="✔️️"),
+#         Page("pages/3_Acceptance_criteria.py", "Use cases Chat_test", "🏠"),
+#         Page("pages/5_Mermaid_test.py", "Mermaid", "🏠"),
+#         Section("Settings", icon="✔️️"),
+#         Page("pages/4_Settings.py", "Settings", "🏠"),
+#
+#     ]
+# )
 
 #TITLES
-#st.set_page_config(page_title="DAAS", page_icon="📖", layout="wide")
-#st.header("📖User Story")
-#SUBHEADER
+st.set_page_config(page_title="Analyst copilot", page_icon="📖", layout="wide")
+st.title("📖User Story")
+st.write("")
+#st.header('Test 1')
+#st.subheader('Test 1')
+
 
 #st.video("https://www.youtube.com/watch?v=ovtxI75g34g")
 
@@ -35,12 +38,17 @@ with st.expander("Задача страницы"):
     st.write("Привет")
     st.image("https://static.streamlit.io/examples/dice.jpg")
 
+st.write("")
+
 with st.expander("Этапы выполнения"):
     st.video("https://www.youtube.com/watch?v=ovtxI75g34g")
+
+st.write("")
 
 with st.expander("Типичные ошибки"):
     st.image("static/2023-10-30_16-10-05.png")
 
+st.divider()
 
 st.warning("Lets write couple of user stories")
 
