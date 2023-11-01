@@ -1,51 +1,23 @@
-import os
 import streamlit as st
 from components.sidebar import sidebar
-from functions.llama2 import model_response
-from huggingface_hub import InferenceClient
-from locals.prompt import *
-from locals.content import *
 
-lc = Content()
-pt = Prompt()
-
-#TITLES
-st.set_page_config(page_title="Analyst copilot", page_icon="📖", layout="wide")
-st.title("📖"+ lc.gt("user-story-title"))
-st.write("")
-#st.header('Test 1')
-#st.subheader('Test 1')
-
-
-#st.video("https://www.youtube.com/watch?v=ovtxI75g34g")
-
-with st.expander(lc.gt("user-story-goal-page")):
+with st.expander("Задача страницы"):
     st.write("Привет")
     st.image("https://static.streamlit.io/examples/dice.jpg")
 
-st.write("")
-
-with st.expander(lc.gt("user-story-steps")):
+with st.expander("Этапы выполнения"):
     st.video("https://www.youtube.com/watch?v=ovtxI75g34g")
 
-st.write("")
-
-with st.expander(lc.gt("user-story-typical-mistakes")):
+with st.expander("Типичные ошибки"):
     st.image("static/2023-10-30_16-10-05.png")
 
-st.divider()
 
-st.warning(lc.gt("user-story-lets-write"))
-
-#DECLARE BUTTON RESET HISTORY
 def clear_chat_history():
     st.session_state.messages = [{"role": "assistant", "content": "I'm best business analyst ever! Wanna help?"}]
-#USAGE BUTTON RESET HISTORY
-st.button(lc.gt("user-story-button-forget"), on_click=clear_chat_history)
 
-# Enable caching for expensive functions
-#bootstrap_caching()
-# Render sidebar
+st.button('Forgot context', on_click=clear_chat_history)
+st.warning("Lets write couple of use cases")
+
 sidebar()
 
 #st.session_state["API_KEY"] = 'r8_5dXks0XSi27sUU4zxiCeKiYOB1wvfil3UZOxV'
@@ -82,5 +54,3 @@ if st.session_state.messages[-1]["role"] != "assistant":
             placeholder.markdown(full_response)
     message = {"role": "assistant", "content": full_response}
     st.session_state.messages.append(message)
-
-
