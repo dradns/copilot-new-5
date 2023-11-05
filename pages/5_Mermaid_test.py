@@ -4,8 +4,8 @@ from components.sidebar import sidebar
 #import streamlit_mermaid as stmd
 from functions.stmd import st_mermaid
 
-from st_pages import Page, show_pages, Section, add_page_title
-#add_page_title()
+#TITLES
+st.set_page_config(page_title="Analyst copilot", page_icon="📖", layout="wide")
 
 # Enable caching for expensive functions
 #bootstrap_caching()
@@ -14,14 +14,15 @@ sidebar()
 
 code = """
 sequenceDiagram
-    participant Client
-    participant Server
-    participant Database
+    User->>ApiGw: Upload Document Request
+    ApiGw->>MicroService: Forward Document
+    MicroService->>ObjectDb: Store Document
+    ObjectDb-->>MicroService: Document ID
+    MicroService->>RelationalDb: Store Document Metadata
+    RelationalDb-->>MicroService: Acknowledge Metadata Storage
+    MicroService->>ApiGw: Respond with Document ID
+    ApiGw->>User: Document ID
 
-    Client->>Server: Request (Post Status Update)
-    Server->>Database: Insert Status Update
-    Database-->>Server: Acknowledge Insert
-    Server-->>Client: Response (Status Update Successful)
 """
 
 # code = """

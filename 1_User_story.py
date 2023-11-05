@@ -48,12 +48,6 @@ st.button(lc.gt("user-story-button-forget"), on_click=clear_chat_history)
 # Render sidebar
 sidebar()
 
-#st.session_state["API_KEY"] = 'r8_5dXks0XSi27sUU4zxiCeKiYOB1wvfil3UZOxV'
-#replicate_api = st.session_state.get("API_KEY")
-#os.environ['REPLICATE_API_TOKEN'] = replicate_api
-# print('API KEY')
-# print(st.session_state.get("API_KEY"))
-
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [{"role": "assistant", "content": "I'm best business analyst ever! Wanna help?"}]
@@ -63,7 +57,7 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
 
-# User-provided prompt
+#append user message to global
 if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
