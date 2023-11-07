@@ -51,7 +51,6 @@ st.warning(lc.gt("user-story-lets-write"))
 
 def get_assistant_reply():
     if st.session_state.page_survey_counter > 0:
-        print('if')
         with st.chat_message("assistant"):
             full_response2 = sr.gs(survey_name)[len(sr.gs(survey_name)) - st.session_state.page_survey_counter]
             placeholder = st.empty()
@@ -61,7 +60,6 @@ def get_assistant_reply():
         message = {"role": "assistant", "content": full_response2}
 
     else:
-        print('else')
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
                 response = model_response(prompt)

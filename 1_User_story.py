@@ -12,28 +12,40 @@ pt = Prompt()
 #TITLES
 st.set_page_config(page_title="Analyst copilot", page_icon="📖", layout="wide")
 st.title("📖"+ lc.gt("user-story-title"))
-st.write("")
-#st.header('Test 1')
-#st.subheader('Test 1')
-
-
-#st.video("https://www.youtube.com/watch?v=ovtxI75g34g")
-
-with st.expander(lc.gt("user-story-goal-page")):
-    st.write("Привет")
-    st.image("https://static.streamlit.io/examples/dice.jpg")
-
+st.info('Info message')
 st.write("")
 
-with st.expander(lc.gt("user-story-steps")):
-    st.video("https://www.youtube.com/watch?v=ovtxI75g34g")
+#Page goals, Page steps, Typical mistakes
+col1, col2, col3 = st.columns(3)
+with col1:
+   with st.expander(lc.gt("user-story-goal-page")):
+       st.write("Привет")
+       st.image("https://static.streamlit.io/examples/dice.jpg")
 
-st.write("")
+with col2:
+    with st.expander(lc.gt("user-story-steps")):
+        st.video("https://www.youtube.com/watch?v=ovtxI75g34g")
 
-with st.expander(lc.gt("user-story-typical-mistakes")):
-    st.image("static/2023-10-30_16-10-05.png")
+with col3:
+    with st.expander(lc.gt("user-story-typical-mistakes")):
+        st.image("static/2023-10-30_16-10-05.png")
 
-st.divider()
+
+# with st.expander(lc.gt("user-story-goal-page")):
+#     st.write("Привет")
+#     st.image("https://static.streamlit.io/examples/dice.jpg")
+#
+# st.write("")
+#
+# with st.expander(lc.gt("user-story-steps")):
+#     st.video("https://www.youtube.com/watch?v=ovtxI75g34g")
+#
+# st.write("")
+#
+# with st.expander(lc.gt("user-story-typical-mistakes")):
+#     st.image("static/2023-10-30_16-10-05.png")
+
+# st.divider()
 
 st.warning(lc.gt("user-story-lets-write"))
 

@@ -16,7 +16,7 @@ def model_response(prompt_input):
     format_rus = "Как пользователь < тип ПОЛЬЗОВАТЕЛЯ >, Я хочу < такую-то ЦЕЛЬ > для того чтобы < определенная ПРИЧИНА/ПОТРЕБНОСТЬ >.\n"
     prompt_rus = "Помоги написать юзер стори для фичи в моем приложении. Фича похожа на сторисы в инстаграм.\n"
     language_rus = "Ты должен отвечать только на РУССКОМ языке.\n"
-    instruct = "You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'. Ты должен отвечать в формате ОДНОЙ User Story. Не больше одного абзаца"
+    instruct = "You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'. Ты должен отвечать в формате ОДНОЙ User Story. Не больше одного абзаца\n"
 
     #example1 = "Вот первый пример идеальной User Story: как клиент магазина для взрослых, я хочу не указывать личные данные при регистрации, чтобы сохранить свою конфиденциальность.\n"
 
@@ -51,11 +51,5 @@ gen_kwargs = dict(
 
 #model call
 def response2(string_dialogue, prompt_input):
-    # output = replicate.run('a16z-infra/llama13b-v2-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5',
-    #                        input={"prompt": f"{string_dialogue} {prompt_input} Assistant: ",
-    #                               "temperature": 0.01, "top_p": 0.1, "max_length": 120,
-    #                               "repetition_penalty": 1})
-    #return output
-    #print(hf_token)
     prompt = f"{string_dialogue} {prompt_input} Assistant: "
     return client.text_generation(prompt, **gen_kwargs)

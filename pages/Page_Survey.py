@@ -14,6 +14,11 @@ st.session_state.setdefault('questions', [])
 st.title("Survey QA Bot")
 questions_list = ['question 1', 'question 2', 'question 3']
 #response_list = ['res 1']
+st.warning(lc.gt("user-story-lets-write"))
+st.error('Error message')
+st.warning('Warning message')
+st.info('Info message')
+st.success('Success message')
 
 if 'responses' not in st.session_state.keys():
     st.session_state.questions.extend(questions_list)
