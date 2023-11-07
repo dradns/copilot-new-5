@@ -12,13 +12,17 @@ lc = Content()
 pt = Prompt()
 
 #SET RUSSIAN LANGUAGE
-if 'selected_language' not in st.session_state.keys():
+if "LANGUAGE" not in st.session_state.keys():
     st.session_state["LANGUAGE"] = 'RUS'
 
 #TITLES
 page_name = "user-story"
 st.set_page_config(page_title="Analyst copilot", page_icon="📖", layout="wide")
 st.title("📖"+ " " + lc.gt("user-story-title"))
+
+st.write('session_state.keys')
+st.write(st.session_state)
+
 st.info(lc.gt("user-story-description"))
 st.write("")
 
@@ -41,9 +45,13 @@ st.warning(lc.gt("user-story-lets-write"))
 
 #DECLARE BUTTON RESET HISTORY
 def clear_chat_history():
-    st.session_state.messages_us = [{"role": "assistant", "content": lc.gt("user-story-ass-first-reply")}]
+    del st.session_state["messages_us"]
+    if 'messages_us' not in st.session_state:
+        st.session_state['messages_us'] = [{"role": "assistant", "content": lc.gt("user-story-ass-first-reply")}]
+    #st.session_state.messages_us = [{"role": "assistant", "content": lc.gt("user-story-ass-first-reply")}]
+
 #USAGE BUTTON RESET HISTORY
-st.button(lc.gt("user-story-button-forget"), on_click=clear_chat_history, type="primary")
+st.button(lc.gt("user-story-button-forget"), on_click=clear_chat_history, type="primary", key=10)
 
 # Render sidebar
 #sidebar()

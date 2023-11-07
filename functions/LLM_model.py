@@ -27,10 +27,10 @@ hf_token = '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'
 client = InferenceClient(endpoint_url, token=hf_token)
 
 gen_kwargs = dict(
-    max_new_tokens=500,
+    max_new_tokens=200,
     top_k=30,
-    top_p=0.9,
-    temperature=0.9,
+    top_p=0.5,
+    temperature=0.1,
     repetition_penalty=1.02,
     stream = False,
     details=False,
