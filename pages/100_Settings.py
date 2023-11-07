@@ -9,6 +9,13 @@ pt = Prompt()
 
 api_key = st.session_state.get("API_KEY")
 
+st.subheader('Language')
+selected_language = st.selectbox('Choose a language', ['English', 'Русский'], key='selected_language')
+if selected_language == 'Русский':
+    st.session_state["LANGUAGE"] = 'RUS'
+elif selected_language == 'English':
+    st.session_state["LANGUAGE"] = 'ENG'
+
 if not api_key:
     st.warning(
         "Enter your API key in the sidebar. You can get a key at")
@@ -21,12 +28,7 @@ api_key_input = st.text_input(
             or st.session_state.get("API_KEY", ""),
         )
 
-st.subheader('Language')
-selected_language = st.selectbox('Choose a language', ['English', 'Русский'], key='selected_language')
-if selected_language == 'Русский':
-    st.session_state["LANGUAGE"] = 'RUS'
-elif selected_language == 'English':
-    st.session_state["LANGUAGE"] = 'ENG'
+
 
 
 

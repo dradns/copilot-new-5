@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_chat import message
+from functions.LLM_model import *
 
 def on_input_change():
     user_input = st.session_state.user_input
@@ -17,6 +18,7 @@ questions_list = ['question 1', 'question 2', 'question 3']
 st.warning(lc.gt("user-story-lets-write"))
 st.error('Error message')
 st.warning('Warning message')
+st.divider()
 st.info('Info message')
 st.success('Success message')
 

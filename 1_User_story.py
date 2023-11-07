@@ -1,18 +1,22 @@
 import os
 import streamlit as st
 from components.sidebar import sidebar
-from functions.llama2 import model_response
+from functions.LLM_model import *
 from huggingface_hub import InferenceClient
 from locals.prompt import *
 from locals.content import *
+from functions.collect_instructions_us import *
+from functions.collect_message_history import *
 
 lc = Content()
 pt = Prompt()
 
 #TITLES
+
+page_name = "user-story"
 st.set_page_config(page_title="Analyst copilot", page_icon="📖", layout="wide")
-st.title("📖"+ lc.gt("user-story-title"))
-st.info('Info message')
+st.title("📖"+ " " + lc.gt("user-story-title"))
+st.info(lc.gt("user-story-description"))
 st.write("")
 
 #Page goals, Page steps, Typical mistakes
@@ -30,56 +34,37 @@ with col3:
     with st.expander(lc.gt("user-story-typical-mistakes")):
         st.image("static/2023-10-30_16-10-05.png")
 
-
-# with st.expander(lc.gt("user-story-goal-page")):
-#     st.write("Привет")
-#     st.image("https://static.streamlit.io/examples/dice.jpg")
-#
-# st.write("")
-#
-# with st.expander(lc.gt("user-story-steps")):
-#     st.video("https://www.youtube.com/watch?v=ovtxI75g34g")
-#
-# st.write("")
-#
-# with st.expander(lc.gt("user-story-typical-mistakes")):
-#     st.image("static/2023-10-30_16-10-05.png")
-
-# st.divider()
-
 st.warning(lc.gt("user-story-lets-write"))
 
 #DECLARE BUTTON RESET HISTORY
 def clear_chat_history():
-    st.session_state.messages = [{"role": "assistant", "content": "I'm best business analyst ever! Wanna help?"}]
+    st.session_state.messages_us = [{"role": "assistant", "content": lc.gt("user-story-ass-first-reply")}]
 #USAGE BUTTON RESET HISTORY
-st.button(lc.gt("user-story-button-forget"), on_click=clear_chat_history)
+st.button(lc.gt("user-story-button-forget"), on_click=clear_chat_history, type="primary")
 
-# Enable caching for expensive functions
-#bootstrap_caching()
 # Render sidebar
-sidebar()
+#sidebar()
 
 # Store LLM generated responses
-if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "I'm best business analyst ever! Wanna help?"}]
+if "messages_us" not in st.session_state.keys():
+    st.session_state.messages_us = [{"role": "assistant", "content": lc.gt("user-story-ass-first-reply")}]
 
 # Display or clear chat history
-for message in st.session_state.messages:
+for message in st.session_state.messages_us:
     with st.chat_message(message["role"]):
         st.write(message["content"])
 
 #append user message to global
-if prompt := st.chat_input():
-    st.session_state.messages.append({"role": "user", "content": prompt})
+if user_prompt := st.chat_input():
+    st.session_state.messages_us.append({"role": "user", "content": user_prompt})
     with st.chat_message("user"):
-        st.write(prompt)
+        st.write(user_prompt)
 
 # Generate a new response if last message is not from assistant
-if st.session_state.messages[-1]["role"] != "assistant":
+if st.session_state.messages_us[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
-            response = model_response(prompt)
+        with st.spinner(lc.gt("thinking")):
+            response = model_response(user_prompt, page_name)
             placeholder = st.empty()
             full_response = ''
             for item in response:
@@ -87,6 +72,4 @@ if st.session_state.messages[-1]["role"] != "assistant":
                 placeholder.markdown(full_response)
             placeholder.markdown(full_response)
     message = {"role": "assistant", "content": full_response}
-    st.session_state.messages.append(message)
-
-
+    st.session_state.messages_us.append(message)

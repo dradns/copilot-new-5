@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 from components.sidebar import sidebar
-from functions.llama2 import model_response
+from functions.LLM_model import *
 from huggingface_hub import InferenceClient
 from locals.prompt import *
 from locals.content import *
