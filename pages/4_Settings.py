@@ -15,6 +15,12 @@ if selected_language == 'Русский':
     st.session_state["LANGUAGE"] = 'RUS'
 elif selected_language == 'English':
     st.session_state["LANGUAGE"] = 'ENG'
+st.write(" ")
+st.write(" ")
+st.write(" ")
+st.write(" ")
+st.write(" ")
+st.write(" ")
 
 if not api_key:
     st.warning(

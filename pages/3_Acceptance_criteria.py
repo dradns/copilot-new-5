@@ -35,7 +35,7 @@ st.button('Forgot context', on_click=clear_chat_history)
 # Enable caching for expensive functions
 #bootstrap_caching()
 
-sidebar()
+#sidebar()
 
 openai_api_key = st.session_state.get("OPENAI_API_KEY")
 

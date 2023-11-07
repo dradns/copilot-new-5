@@ -1,5 +1,6 @@
 import streamlit as st
 from components.sidebar import sidebar
+from functions.LLM_model import *
 
 from st_pages import Page, show_pages, Section, add_page_title
 add_page_title()
@@ -33,7 +34,7 @@ def clear_chat_history():
 st.button('Forgot context', on_click=clear_chat_history)
 st.warning("Lets write couple of use cases")
 
-sidebar()
+#sidebar()
 
 #st.session_state["API_KEY"] = 'r8_5dXks0XSi27sUU4zxiCeKiYOB1wvfil3UZOxV'
 #replicate_api = st.session_state.get("API_KEY")

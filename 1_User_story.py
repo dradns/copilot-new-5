@@ -11,8 +11,11 @@ from functions.collect_message_history import *
 lc = Content()
 pt = Prompt()
 
-#TITLES
+#SET RUSSIAN LANGUAGE
+if 'selected_language' not in st.session_state.keys():
+    st.session_state["LANGUAGE"] = 'RUS'
 
+#TITLES
 page_name = "user-story"
 st.set_page_config(page_title="Analyst copilot", page_icon="📖", layout="wide")
 st.title("📖"+ " " + lc.gt("user-story-title"))
