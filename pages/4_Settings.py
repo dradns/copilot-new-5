@@ -8,9 +8,14 @@ lc = Content()
 pt = Prompt()
 
 api_key = st.session_state.get("API_KEY")
+def default_language():
+    if st.session_state["LANGUAGE"] == 'RUS':
+        return ['Русский', 'English']
+    else:
+        return ['English', 'Русский']
 
 st.subheader('Language')
-selected_language = st.selectbox('Choose a language', ['English', 'Русский'], key='selected_language')
+selected_language = st.selectbox('Choose a language', default_language(), key='selected_language')
 if selected_language == 'Русский':
     st.session_state["LANGUAGE"] = 'RUS'
 elif selected_language == 'English':
