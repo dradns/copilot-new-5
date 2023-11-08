@@ -17,6 +17,8 @@ def collect_instructions(page_name):
         return collect_instructions_us()
     elif page_name == "use-case":
         return collect_instructions_uc()
+    elif page_name == "acceptance-criteria":
+        return collect_instructions_ac()
 
 
 def collect_instructions_us():
@@ -39,9 +41,15 @@ def collect_instructions_uc():
     length_instruction = pt.gp("use-case-length-instruction")
     string_instructions = use_case_role + do_not_pretend + use_case_description + use_case_example + language_instruction + length_instruction
 
-    print(string_instructions)
     return string_instructions
 
-#collect_instructions_uc()
+def collect_instructions_ac():
+    use_case_role = pt.gp("acceptance-criteria-role")
+    do_not_pretend = pt.gp("do-not-pretend")
+    use_case_description = pt.gp("acceptance-criteria-description")
+    use_case_example = pt.gp("acceptance-criteria-example")
+    language_instruction = pt.gp("language-instruction")
+    length_instruction = pt.gp("acceptance-criteria-length-instruction")
+    string_instructions = use_case_role + do_not_pretend + use_case_description + use_case_example + language_instruction + length_instruction
 
-print(pt.gp("use-case-length-instruction"))
+    return string_instructions

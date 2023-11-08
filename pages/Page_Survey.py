@@ -29,12 +29,6 @@ if 'responses' not in st.session_state.keys():
 chat_placeholder = st.empty()
 st.button("Clear message", on_click=on_btn_click)
 
-#message(st.session_state.questions[0], key=5)
-
-#with st.container():
-# for response, question in zip(st.session_state.responses, st.session_state.questions[1:]):
-#     message(response, is_user = True)
-#     message(question)
 
 for question in st.session_state.questions:
     message(st.session_state['questions'][0], is_user=False)

@@ -29,7 +29,15 @@ class Prompt:
                                 Alternative flows:
                                 The housekeeper irons any wrinkled items before putting them on a hanger
                                 The housekeeper rewashes anything she finds to be still dirty",
-                                """
+                                """,
+
+        # ACCEPTANCE CRITERIA PAGE
+        "acceptance-criteria-role": "You are in tester role. Help user to write acceptance criteria. \n",
+        "acceptance-criteria-description": "Acceptance criteria are a set of predefined conditions that a product or feature must meet to be accepted by the customer,user and tester. They serve as an essential guide for developers during the development process and help ensure that the final product aligns with the intended user needs and business goals.\n",
+        "acceptance-criteria-length-instruction": "You should answer no more than one paragraph.\n",
+        "acceptance-criteria-example": """The semester fee balance is displayed The semester fee balance is calculated
+                                                The fee balance is displayed for that semester’s duration
+                                                The balance is not displayed if an unknown student identity is applied\n"""
 
     }
 
@@ -64,7 +72,16 @@ class Prompt:
                                 Альтернативные флоу:
                                 Домработница гладит любые помятые вещи перед тем, как повесить их на вешалку.
                                 Домработница перестирывает все вещи, которые посчитает грязными.\n",
-                                """
+                                """,
+
+        # ACCEPTANCE CRITERIA PAGE
+        "acceptance-criteria-role": "Ты в роли тестеровщика. Помоги пользователю написать Критерии приемки.\n",
+        "acceptance-criteria-description": "Критерии приемки - это набор предопределенных условий, которым должен соответствовать продукт или функция, чтобы быть принятым заказчиком, пользователем и тестировщиком. Они служат важным руководством для разработчиков в процессе разработки и помогают гарантировать, что конечный продукт соответствует предполагаемым потребностям пользователей и бизнес-целям.\n",
+        "acceptance-criteria-example": """Остаток платы за семестр находится на экране
+                                        Остаток платы за семестр расчитан верно
+                                        Остаток платы за семестр расчитан для текущего семестра
+                                        Баланс не отображается, если используется неизвестный идентификатор студента\n""",
+        "acceptance-criteria-length-instruction": "Ты должен ответить не больше чем одним параграфом.\n",
     }
 
     def gp(self, key):

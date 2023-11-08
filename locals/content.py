@@ -27,6 +27,16 @@ class Content:
         "use-case-lets-write": "Are you ready to write some of use cases?",
         "use-case-button-forget": "Forget context",
         "use-case-ass-first-reply": "I'm best business analyst ever! Wanna help?",
+
+        # ACCEPTANCE CRITERIA PAGE
+        "acceptance-criteria-title": "Acceptance criteria",
+        "acceptance-criteria-description": "This page will help you to write Acceptance Criteria. It's recommended to read page goals, stages and typical mistakes. After that go to the chat and AI will help you to write Acceptance Criteria for you 😎",
+        "acceptance-criteria-goal-page": "Page goals 🎯",
+        "acceptance-criteria-steps": "Page steps 📶",
+        "acceptance-criteria-typical-mistakes": "Typical mistakes 🚨",
+        "acceptance-criteria-lets-write": "Are you ready to write some acceptance criteria?",
+        "acceptance-criteria-button-forget": "Forget context",
+        "acceptance-criteria-ass-first-reply": "I'm best tester ever! Wanna help?",
     }
 
     content_rus = {
@@ -54,6 +64,16 @@ class Content:
         "use-case-lets-write": "Готов написать пару сценариев использования?",
         "use-case-button-forget": "Забыть контекст",
         "use-case-ass-first-reply": "Я лучший бизнес аналитик! Давай помогу?",
+
+        # ACCEPTANCE CRITERIA PAGE
+        "acceptance-criteria-title": "Критерии приемки",
+        "acceptance-criteria-description": "Эта страница поможет тебе написать критерии приемки. Рекомендую прочитать цели, этапы и типичные ошибки ниже. Потом переходи в чат и AI поможет тебе написать критерии приемки 😎",
+        "acceptance-criteria-goal-page": "Цели страницы 🎯",
+        "acceptance-criteria-steps": "Этапы выполнения 📶",
+        "acceptance-criteria-typical-mistakes": "Типичные ошибки 🚨",
+        "acceptance-criteria-lets-write": "Готов написать критерии приемки?",
+        "acceptance-criteria-button-forget": "Забыть контекст",
+        "acceptance-criteria-ass-first-reply": "Я лучший тестировщик! Давай помогу?",
     }
 
     def gt(self, key):

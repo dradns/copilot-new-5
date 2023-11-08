@@ -10,6 +10,8 @@ def map_session_state(page_name):
         return st.session_state.messages_us
     elif page_name == 'use-case':
         return st.session_state.messages_uc
+    elif page_name == 'acceptance-criteria':
+        return st.session_state.messages_ac
 
 #collecting context
 def collect_message_history(user_prompt, page_name):

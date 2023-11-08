@@ -18,8 +18,8 @@ page_name = "user-story"
 st.set_page_config(page_title="Analyst copilot", page_icon="📖", layout="wide")
 st.title("📖"+ " " + lc.gt("user-story-title"))
 
-st.write('session_state.keys')
-st.write(st.session_state)
+#st.write('session_state.keys')
+#st.write(st.session_state)
 
 st.info(lc.gt("user-story-description"))
 st.write("")
