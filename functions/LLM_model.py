@@ -4,7 +4,7 @@ import langchain
 import transformers
 import huggingface_hub
 from huggingface_hub import InferenceClient
-from functions.collect_instructions_us import *
+from functions.collect_instructions import *
 from functions.collect_message_history import *
 
 #collecting context
@@ -13,7 +13,7 @@ def model_response(user_prompt, page_name):
     #2. собрать историю сообщений
 
     # Collect instructions for page_name
-    string_instructions = collect_instructions_us()
+    string_instructions = collect_instructions(page_name)
     #Сollect whole message history
     string_dialogue = collect_message_history(user_prompt, page_name)
     total_string = string_instructions + string_dialogue
@@ -27,7 +27,7 @@ hf_token = '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'
 client = InferenceClient(endpoint_url, token=hf_token)
 
 gen_kwargs = dict(
-    max_new_tokens=200,
+    max_new_tokens=1000,
     top_k=30,
     top_p=0.5,
     temperature=0.1,

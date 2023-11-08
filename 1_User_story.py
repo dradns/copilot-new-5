@@ -3,7 +3,7 @@ import streamlit as st
 from functions.LLM_model import *
 from locals.prompt import *
 from locals.content import *
-from functions.collect_instructions_us import *
+from functions.collect_instructions import *
 from functions.collect_message_history import *
 from functions.set_session_variables import *
 
@@ -48,8 +48,7 @@ def clear_chat_history():
         st.session_state['messages_us'] = [{"role": "assistant", "content": lc.gt("user-story-ass-first-reply")}]
 
 #USAGE BUTTON RESET HISTORY
-st.button(lc.gt("user-story-button-forget"), on_click=clear_chat_history, type="primary", key=10)
-
+st.button(lc.gt("user-story-button-forget"), on_click=clear_chat_history, type="primary", key=1010)
 
 # Store LLM generated responses
 if "messages_us" not in st.session_state.keys():

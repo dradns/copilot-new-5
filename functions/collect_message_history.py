@@ -8,8 +8,9 @@ from huggingface_hub import InferenceClient
 def map_session_state(page_name):
     if page_name == 'user-story':
         return st.session_state.messages_us
-    # elif:
-    #
+    elif page_name == 'use-case':
+        return st.session_state.messages_uc
+
 #collecting context
 def collect_message_history(user_prompt, page_name):
     string_dialogue_before = ""

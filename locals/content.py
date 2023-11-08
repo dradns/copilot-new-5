@@ -17,6 +17,16 @@ class Content:
         "user-story-lets-write": "Are you ready to write couple of user stories?",
         "user-story-button-forget": "Forget context",
         "user-story-ass-first-reply": "I'm best business analyst ever! Wanna help?",
+
+        # USE CASE PAGE
+        "use-case-title": "Use case",
+        "use-case-description": "This page will help you to write Use Case. It's recommended to read page goals, stages and typical mistakes. After that go to the chat and AI will help you to write User Story for you 😎",
+        "use-case-goal-page": "Page goals 🎯",
+        "use-case-steps": "Page steps 📶",
+        "use-case-typical-mistakes": "Typical mistakes 🚨",
+        "use-case-lets-write": "Are you ready to write some of use cases?",
+        "use-case-button-forget": "Forget context",
+        "use-case-ass-first-reply": "I'm best business analyst ever! Wanna help?",
     }
 
     content_rus = {
@@ -34,6 +44,16 @@ class Content:
         "user-story-lets-write": "Готов написать пару пользовательских историй?",
         "user-story-button-forget": "Забыть контекст",
         "user-story-ass-first-reply": "Я лучший бизнес аналитик! Давай помогу?",
+
+        # USE CASE PAGE
+        "use-case-title": "Cценарий использования",
+        "use-case-description": "Эта страница поможет тебе написать сценарий использования. Рекомендую прочитать цели, этапы и типичные ошибки ниже. Потом переходи в чат и AI поможет тебе написать сценарий использования 😎",
+        "use-case-goal-page": "Цели страницы 🎯",
+        "use-case-steps": "Этапы выполнения 📶",
+        "use-case-typical-mistakes": "Типичные ошибки 🚨",
+        "use-case-lets-write": "Готов написать пару сценариев использования?",
+        "use-case-button-forget": "Забыть контекст",
+        "use-case-ass-first-reply": "Я лучший бизнес аналитик! Давай помогу?",
     }
 
     def gt(self, key):
