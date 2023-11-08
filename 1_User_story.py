@@ -1,19 +1,17 @@
 import os
 import streamlit as st
-from components.sidebar import sidebar
 from functions.LLM_model import *
-from huggingface_hub import InferenceClient
 from locals.prompt import *
 from locals.content import *
 from functions.collect_instructions_us import *
 from functions.collect_message_history import *
+from functions.set_session_variables import *
 
 lc = Content()
 pt = Prompt()
 
-#SET RUSSIAN LANGUAGE
-if "LANGUAGE" not in st.session_state.keys():
-    st.session_state["LANGUAGE"] = 'RUS'
+#SET SESSION VARIABLES
+set_session_variables()
 
 #TITLES
 page_name = "user-story"
@@ -48,13 +46,10 @@ def clear_chat_history():
     del st.session_state["messages_us"]
     if 'messages_us' not in st.session_state:
         st.session_state['messages_us'] = [{"role": "assistant", "content": lc.gt("user-story-ass-first-reply")}]
-    #st.session_state.messages_us = [{"role": "assistant", "content": lc.gt("user-story-ass-first-reply")}]
 
 #USAGE BUTTON RESET HISTORY
 st.button(lc.gt("user-story-button-forget"), on_click=clear_chat_history, type="primary", key=10)
 
-# Render sidebar
-#sidebar()
 
 # Store LLM generated responses
 if "messages_us" not in st.session_state.keys():

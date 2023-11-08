@@ -1,28 +1,31 @@
-import os
 import streamlit as st
+from components.sidebar import sidebar
 from functions.LLM_model import *
-from locals.prompt import *
-from locals.content import *
-from functions.collect_instructions_us import *
-from functions.collect_message_history import *
-from functions.set_session_variables import *
 
-lc = Content()
-pt = Prompt()
+from st_pages import Page, show_pages, Section, add_page_title
+add_page_title()
 
-#SET SESSION VARIABLES
-set_session_variables()
+# show_pages(
+#     [
+#         Section("Business requirements", icon="🎈️"),
+#         Page("1_User_story.py", "User story", "🏠"),
+#         Page("pages/22_Use_cases.py", "Use cases", "🏠"),
+#         Section("System requirements", icon="🎈️"),
+#         Page("pages/2_System_requirements.py", "Use cases Chat_test", "🏠"),
+#         Section("Acceptance criteria", icon="🎈️"),
+#         Page("pages/3_Acceptance_criteria.py", "Use cases Chat_test", "🏠"),
+#     ]
+# )
 
-#TITLES
-page_name = "user-case"
-st.set_page_config(page_title="Analyst copilot", page_icon="📖", layout="wide")
-st.title("📖"+ " " + lc.gt("user-story-title"))
+with st.expander("Задача страницы"):
+    st.write("Привет")
+    st.image("https://static.streamlit.io/examples/dice.jpg")
 
-st.write('session_state.keys')
-st.write(st.session_state)
+with st.expander("Этапы выполнения"):
+    st.video("https://www.youtube.com/watch?v=ovtxI75g34g")
 
-st.info(lc.gt("user-story-description"))
-st.write("")
+with st.expander("Типичные ошибки"):
+    st.image("static/2023-10-30_16-10-05.png")
 
 
 def clear_chat_history():
