@@ -21,8 +21,8 @@ st.title("📖"+ " " + lc.gt("use-case-title"))
 #st.write('session_state.keys')
 #st.write(st.session_state)
 
-st.info(lc.gt("use-case-description"))
-st.write("")
+#st.info(lc.gt("use-case-description"))
+#st.write("")
 
 #Page goals, Page steps, Typical mistakes
 col1, col2, col3 = st.columns(3)
@@ -39,7 +39,7 @@ with col3:
     with st.expander(lc.gt("use-case-typical-mistakes")):
         st.image("static/2023-10-30_16-10-05.png")
 
-st.warning(lc.gt("use-case-lets-write"))
+#st.warning(lc.gt("use-case-lets-write"))
 
 #DECLARE BUTTON RESET HISTORY
 def clear_chat_history():
