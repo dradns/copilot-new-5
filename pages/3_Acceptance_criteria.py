@@ -25,6 +25,15 @@ st.title("📖"+ " " + lc.gt("acceptance-criteria-title"))
 #st.write("")
 
 #Page goals, Page steps, Typical mistakes
+with st.expander(lc.gt("user-story-goal-page")):
+    tab1, tab2, tab3 = st.tabs(["Цели страницы ---", "Этапы выполнения---", "Типичные ошибки---"])
+    tab1.write("this is tab 1")
+    tab1.image("https://static.streamlit.io/examples/dice.jpg")
+    tab2.write("this is tab 2")
+    tab2.video("https://www.youtube.com/watch?v=ovtxI75g34g")
+    tab3.write("this is tab 2")
+    tab3.video("https://www.youtube.com/watch?v=ovtxI75g34g")
+
 col1, col2, col3 = st.columns(3)
 with col1:
    with st.expander(lc.gt("acceptance-criteria-goal-page")):
