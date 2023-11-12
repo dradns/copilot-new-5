@@ -34,19 +34,19 @@ with st.expander(lc.gt("user-story-goal-page")):
     tab3.write("this is tab 2")
     tab3.video("https://www.youtube.com/watch?v=ovtxI75g34g")
 
-col1, col2, col3 = st.columns(3)
-with col1:
-   with st.expander(lc.gt("acceptance-criteria-goal-page")):
-       st.write("Привет")
-       st.image("https://static.streamlit.io/examples/dice.jpg")
-
-with col2:
-    with st.expander(lc.gt("acceptance-criteria-steps")):
-        st.video("https://www.youtube.com/watch?v=ovtxI75g34g")
-
-with col3:
-    with st.expander(lc.gt("acceptance-criteria-typical-mistakes")):
-        st.image("static/2023-10-30_16-10-05.png")
+# col1, col2, col3 = st.columns(3)
+# with col1:
+#    with st.expander(lc.gt("acceptance-criteria-goal-page")):
+#        st.write("Привет")
+#        st.image("https://static.streamlit.io/examples/dice.jpg")
+#
+# with col2:
+#     with st.expander(lc.gt("acceptance-criteria-steps")):
+#         st.video("https://www.youtube.com/watch?v=ovtxI75g34g")
+#
+# with col3:
+#     with st.expander(lc.gt("acceptance-criteria-typical-mistakes")):
+#         st.image("static/2023-10-30_16-10-05.png")
 
 #st.warning(lc.gt("acceptance-criteria-lets-write"))
 
