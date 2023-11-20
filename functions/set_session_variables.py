@@ -14,6 +14,15 @@ def set_session_variables():
     #SET HISTORY
     if "chat_history" not in st.session_state.keys():
         st.session_state.chat_history = [{"role": "assistant", "content": lc.gt("user-story-ass-first-reply")}]
-    # SET US content
+    # SET US quill content
     if "user_story_quill_content" not in st.session_state.keys():
         st.session_state["user_story_quill_content"] = ""
+    # SET US quill content
+    if "use_case_quill_content" not in st.session_state.keys():
+        st.session_state["use_case_quill_content"] = ""
+    # SET AC quill content
+    if "acceptance_criteria_quill_content" not in st.session_state.keys():
+        st.session_state["acceptance_criteria_quill_content"] = ""
+
+    if "counter" not in st.session_state.keys():
+        st.session_state["counter"] = 300
