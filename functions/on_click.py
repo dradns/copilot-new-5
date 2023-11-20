@@ -2,7 +2,6 @@ import os
 import time
 import streamlit as st
 import streamlit.components.v1 as components
-from streamlit_chat import message
 from components.sidebar import *
 from locals.prompt import *
 from locals.content import *

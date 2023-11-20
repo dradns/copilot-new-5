@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_chat import message
 from functions.LLM_model import *
 
 def on_input_change():
