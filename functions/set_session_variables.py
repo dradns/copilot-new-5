@@ -22,6 +22,15 @@ use_case_placeholder = """Пример пользовательского сце
                         Домработница перестирывает все вещи, которые посчитает грязными.\n",
 """
 
+acceptance_criteria_placeholder = """
+На странице товара доступна кнопка “заказать” (во всех браузерах, включая мобильную версию)
+При нажатии на кнопку “заказать” в всплывающем окне показывается форма заказа (во всех браузерах, включая мобильную версию)
+Форма заказа содержит следующие поля (перечислить поля…)
+Форма оснащена валидацией данных (например, в поле “телефон” нельзя ввести текст…)
+При заполнении всех обязательных полей заказа и нажатии кнопки “отправить заказ” клиенту приходит сообщение “об отправке заказа”
+При заполнении всех обязательных полей заказа и нажатии кнопки “отправить заказ” администратор сайта получает уведомление и всю информацию о заказе, заполненную клиентом, по email.
+"""
+
 def set_session_variables():
     #SET LANGUAGE
     if "LANGUAGE" not in st.session_state.keys():
@@ -37,6 +46,8 @@ def set_session_variables():
         st.session_state["user_story_placeholder"] = user_story_placeholder
     if "use_case_placeholder" not in st.session_state.keys():
         st.session_state["use_case_placeholder"] = use_case_placeholder
+    if "acceptance_criteria_placeholder" not in st.session_state.keys():
+        st.session_state["acceptance_criteria_placeholder"] = acceptance_criteria_placeholder
     # SET US quill content
     if "use_case_quill_content" not in st.session_state.keys():
         st.session_state["use_case_quill_content"] = ""

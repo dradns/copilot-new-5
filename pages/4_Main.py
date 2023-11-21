@@ -20,7 +20,6 @@ page_name = "requirements"
 
 #RENDER USER STORY HEADER
 us_header()
-
 #USER STORY TEXT AREA COLUMNS
 us_tx_c1, us_tx_c2, us_tx_c3, us_tx_c4 = st.columns([8, 0.00001, 0.00001, 0.00001])
 with us_tx_c1:
@@ -134,29 +133,71 @@ with uc_bt_c5:
         style = "<style>.row-widget.stButton {text-align: center;}</style>"
         st.markdown(style, unsafe_allow_html=True)
 
-#RENDER USE CASE HEADER
-ac_header()
-#RENDER QUILL FOR USE CASE
-# x = st.empty()
-# x.info("initial text")
-# if st.checkbox("Check to redraw"):
-#     x.info("redraw")
+#END OF USE CASE
+st.divider()
+st.divider()
+st.divider()
+st.divider()
+st.divider()
 
-# y = st.empty()
-# y.markdown()
-# if st.checkbox("Check to redraw"):
-#     y.info("redraw")
-#
-# if st.button("Самолет", type="primary", key="uc307"):
-#     tmp = st.session_state['acceptance_criteria_quill_content']
-#     ac_quill()
+#ACCEPTANCE CRITERIA TEXT AREA COLUMNS
+ac_tx_c1, ac_tx_c2, ac_tx_c3, ac_tx_c4 = st.columns([8, 0.00001, 0.00001, 0.00001])
+with ac_tx_c1:
+    ac_text_area = st.empty()
+    ac_text_area.text_area(label="", height=st.session_state["acceptance_criteria_height"],
+                           placeholder=st.session_state["acceptance_criteria_placeholder"], key="tx-acceptance-criteria-key", on_change=clear_chat_history())
 
+# ACCEPTANCE CRITERIA BUTTONS
+ac_bt_c1, ac_bt_c2, ac_bt_c3, ac_bt_c4, ac_bt_c5 = st.columns([25, 25, 25, 25, 25])
+with ac_bt_c1:
+    if st.button("Cгенерировать AC", type="primary", key="ac_bt_generate"):
+        #st.session_state["counter"] += 1
+        # print("------------------")
+        # print(st.session_state.get("tx_first"))
+        # print("------------------")
+        with st.spinner(lc.gt("thinking")):
+            res = model_button_response(st.session_state.get("tx-acceptance-criteria-key"),"acceptance-criteria")
+            st.session_state["current_us"] = res
+            #print(st.session_state["tx_first"])
+            ac_text_area.text_area("", value=st.session_state["current_ac"], height=st.session_state["acceptance_criteria_height"])
+            style = "<style>.row-widget.stButton {text-align: center;}</style>"
+            st.markdown(style, unsafe_allow_html=True)
 
-#RENDER USE CASE BUTTONS
-ac_buttons()
+with ac_bt_c2:
+    if st.button("Улучшить AC", type="primary", key="ac_bt_improve"):
+        st.session_state["counter"] += 1
+        ac_text_area.text_area("", value=st.session_state["current_ac"], height=st.session_state["acceptance_criteria_height"])
+        style = "<style>.row-widget.stButton {text-align: center;}</style>"
+        st.markdown(style, unsafe_allow_html=True)
 
+with ac_bt_c3:
+    if st.button("Покритиковать AC", type="primary", key="ac_bt_critique"):
+        st.session_state["counter"] += 1
+        ac_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["acceptance_criteria_height"])
+        style = "<style>.row-widget.stButton {text-align: center;}</style>"
+        st.markdown(style, unsafe_allow_html=True)
 
+with ac_bt_c4:
+    if st.button("Создать UC", type="primary", key="ac_bt_create_UC"):
+        st.session_state["counter"] += 1
+        ac_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["acceptance_criteria_height"])
+        style = "<style>.row-widget.stButton {text-align: center;}</style>"
+        st.markdown(style, unsafe_allow_html=True)
 
+with ac_bt_c5:
+    if st.button("Cохранить", type="primary", key="ac_bt_save"):
+        st.session_state["counter"] += 1
+        ac_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["acceptance_criteria_height"])
+        style = "<style>.row-widget.stButton {text-align: center;}</style>"
+        st.markdown(style, unsafe_allow_html=True)
+
+#END OF USER STORY
+#RENDER USER STORY BUTTONS
+st.divider()
+st.divider()
+st.divider()
+st.divider()
+st.divider()
 
 
 #DEBUG
