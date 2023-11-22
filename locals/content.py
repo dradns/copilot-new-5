@@ -11,7 +11,7 @@ class Content:
         #USER STORY PAGE
         "user-story-title": "User story",
         "user-story-description": "This page will help you to write User Story. It's recommended to read page goals, stages and typical mistakes. After that go to the chat and AI will help you to write User Story for you 😎",
-        "user-story-goal-page": "Page goals 🎯",
+        "user-story-goal-page": "Section goals 🎯",
         "user-story-steps": "Page steps 📶",
         "user-story-typical-mistakes": "Typical mistakes 🚨",
         "user-story-lets-write": "Are you ready to write couple of user stories?",
@@ -21,7 +21,7 @@ class Content:
         # USE CASE PAGE
         "use-case-title": "Use case",
         "use-case-description": "This page will help you to write Use Case. It's recommended to read page goals, stages and typical mistakes. After that go to the chat and AI will help you to write User Story for you 😎",
-        "use-case-goal-page": "Page goals 🎯",
+        "use-case-goal-page": "Section goals 🎯",
         "use-case-steps": "Page steps 📶",
         "use-case-typical-mistakes": "Typical mistakes 🚨",
         "use-case-lets-write": "Are you ready to write some of use cases?",
@@ -31,7 +31,7 @@ class Content:
         # ACCEPTANCE CRITERIA PAGE
         "acceptance-criteria-title": "Acceptance criteria",
         "acceptance-criteria-description": "This page will help you to write Acceptance Criteria. It's recommended to read page goals, stages and typical mistakes. After that go to the chat and AI will help you to write Acceptance Criteria for you 😎",
-        "acceptance-criteria-goal-page": "Page goals 🎯",
+        "acceptance-criteria-goal-page": "Section goals 🎯",
         "acceptance-criteria-steps": "Page steps 📶",
         "acceptance-criteria-typical-mistakes": "Typical mistakes 🚨",
         "acceptance-criteria-lets-write": "Are you ready to write some acceptance criteria?",
@@ -48,7 +48,7 @@ class Content:
         # USER STORY PAGE
         "user-story-title": "Пользовательская история",
         "user-story-description": "Эта страница поможет тебе написать пользовательскую историю. Рекомендую прочитать цели, этапы и типичные ошибки ниже. Потом переходи в чат и AI поможет тебе написать пользовательскую историю для тебя 😎",
-        "user-story-goal-page": "Цели страницы 🎯",
+        "user-story-goal-page": "Цели раздела 🎯",
         "user-story-steps": "Этапы выполнения 📶",
         "user-story-typical-mistakes": "Типичные ошибки 🚨",
         "user-story-lets-write": "Готов написать пару пользовательских историй?",
@@ -58,7 +58,7 @@ class Content:
         # USE CASE PAGE
         "use-case-title": "Cценарий использования",
         "use-case-description": "Эта страница поможет тебе написать сценарий использования. Рекомендую прочитать цели, этапы и типичные ошибки ниже. Потом переходи в чат и AI поможет тебе написать сценарий использования 😎",
-        "use-case-goal-page": "Цели страницы 🎯",
+        "use-case-goal-page": "Цели раздела 🎯",
         "use-case-steps": "Этапы выполнения 📶",
         "use-case-typical-mistakes": "Типичные ошибки 🚨",
         "use-case-lets-write": "Готов написать пару сценариев использования?",
@@ -68,7 +68,7 @@ class Content:
         # ACCEPTANCE CRITERIA PAGE
         "acceptance-criteria-title": "Критерии приемки",
         "acceptance-criteria-description": "Эта страница поможет тебе написать критерии приемки. Рекомендую прочитать цели, этапы и типичные ошибки ниже. Потом переходи в чат и AI поможет тебе написать критерии приемки 😎",
-        "acceptance-criteria-goal-page": "Цели страницы 🎯",
+        "acceptance-criteria-goal-page": "Цели раздела 🎯",
         "acceptance-criteria-steps": "Этапы выполнения 📶",
         "acceptance-criteria-typical-mistakes": "Типичные ошибки 🚨",
         "acceptance-criteria-lets-write": "Готов написать критерии приемки?",

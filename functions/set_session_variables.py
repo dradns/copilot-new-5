@@ -22,8 +22,7 @@ use_case_placeholder = """Пример пользовательского сце
                         Домработница перестирывает все вещи, которые посчитает грязными.\n",
 """
 
-acceptance_criteria_placeholder = """
-На странице товара доступна кнопка “заказать” (во всех браузерах, включая мобильную версию)
+acceptance_criteria_placeholder = """На странице товара доступна кнопка “заказать” (во всех браузерах, включая мобильную версию)
 При нажатии на кнопку “заказать” в всплывающем окне показывается форма заказа (во всех браузерах, включая мобильную версию)
 Форма заказа содержит следующие поля (перечислить поля…)
 Форма оснащена валидацией данных (например, в поле “телефон” нельзя ввести текст…)
@@ -41,9 +40,15 @@ def set_session_variables():
     #SET HISTORY
     if "chat_history" not in st.session_state.keys():
         st.session_state.chat_history = [{"role": "assistant", "content": lc.gt("user-story-ass-first-reply")}]
-    # SET US quill content
+
+    # SET US content
     if "user_story_placeholder" not in st.session_state.keys():
         st.session_state["user_story_placeholder"] = user_story_placeholder
+    if "improved_us" not in st.session_state.keys():
+        st.session_state["improved_us"] = ""
+    if "tx-user-story-key-improved" not in st.session_state.keys():
+        st.session_state["tx-user-story-key-improved"] = ""
+
     if "use_case_placeholder" not in st.session_state.keys():
         st.session_state["use_case_placeholder"] = use_case_placeholder
     if "acceptance_criteria_placeholder" not in st.session_state.keys():
@@ -51,9 +56,7 @@ def set_session_variables():
     # SET US quill content
     if "use_case_quill_content" not in st.session_state.keys():
         st.session_state["use_case_quill_content"] = ""
-    # SET AC quill content
-    if "acceptance_criteria_quill_content" not in st.session_state.keys():
-        st.session_state["acceptance_criteria_quill_content"] = ""
+
     if "counter" not in st.session_state.keys():
         st.session_state["counter"] = 300
     if "user_story_height" not in st.session_state.keys():

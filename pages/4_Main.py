@@ -28,55 +28,49 @@ with us_tx_c1:
                            placeholder=st.session_state["user_story_placeholder"], key="tx-user-story-key", on_change=clear_chat_history())
 
 # USER STORY BUTTONS
-us_bt_c1, us_bt_c2, us_bt_c3, us_bt_c4, us_bt_c5 = st.columns([25, 25, 25, 25, 25])
+us_bt_c1, us_bt_c2, us_bt_c3, us_bt_c4, us_bt_c5 = st.columns([33, 33, 0.01, 33, 0.01])
 with us_bt_c1:
-    if st.button("Cгенерировать US", type="primary", key="us_bt_generate"):
-        #st.session_state["counter"] += 1
-        # print("------------------")
-        # print(st.session_state.get("tx_first"))
-        # print("------------------")
+    if st.button("Cгенерировать US", type="secondary", key="us_bt_generate"):
         with st.spinner(lc.gt("thinking")):
             res = model_button_response(st.session_state.get("tx-user-story-key"),"user-story")
             st.session_state["current_us"] = res
-            #print(st.session_state["tx_first"])
+            st.session_state['tx-user-story-key-improved'] = res
             us_text_area.text_area("", value=st.session_state["current_us"], height=st.session_state["user_story_height"])
             style = "<style>.row-widget.stButton {text-align: center;}</style>"
             st.markdown(style, unsafe_allow_html=True)
 
 with us_bt_c2:
-    if st.button("Улучшить US", type="primary", key="us_bt_improve"):
-        st.session_state["counter"] += 1
-        us_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["counter"])
-        style = "<style>.row-widget.stButton {text-align: center;}</style>"
-        st.markdown(style, unsafe_allow_html=True)
+    if st.button("Улучшить US", type="secondary", key="us_bt_improve"):
+        with st.spinner(lc.gt("thinking")):
+            res = model_improve_us()
+            st.session_state["improved_us"] = res
+            us_text_area.text_area("", value=st.session_state["improved_us"], height=st.session_state["user_story_height"])
+            style = "<style>.row-widget.stButton {text-align: center;}</style>"
+            st.markdown(style, unsafe_allow_html=True)
 
-with us_bt_c3:
-    if st.button("Покритиковать US", type="primary", key="us_bt_critique"):
-        st.session_state["counter"] += 1
-        us_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["counter"])
-        style = "<style>.row-widget.stButton {text-align: center;}</style>"
-        st.markdown(style, unsafe_allow_html=True)
+# with us_bt_c3:
+#     if st.button("Покритиковать US", type="secondary", key="us_bt_critique"):
+#         st.session_state["counter"] += 1
+#         us_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["counter"])
+#         style = "<style>.row-widget.stButton {text-align: center;}</style>"
+#         st.markdown(style, unsafe_allow_html=True)
 
 with us_bt_c4:
-    if st.button("Создать UC", type="primary", key="us_bt_create_UC"):
+    if st.button("Создать UC", type="secondary", key="us_bt_create_UC"):
         st.session_state["counter"] += 1
         us_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["counter"])
         style = "<style>.row-widget.stButton {text-align: center;}</style>"
         st.markdown(style, unsafe_allow_html=True)
 
-with us_bt_c5:
-    if st.button("Cохранить", type="primary", key="us_bt_save"):
-        st.session_state["counter"] += 1
-        us_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["counter"])
-        style = "<style>.row-widget.stButton {text-align: center;}</style>"
-        st.markdown(style, unsafe_allow_html=True)
+# with us_bt_c5:
+#     if st.button("Cохранить", type="secondary", key="us_bt_save"):
+#         st.session_state["counter"] += 1
+#         us_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["counter"])
+#         style = "<style>.row-widget.stButton {text-align: center;}</style>"
+#         st.markdown(style, unsafe_allow_html=True)
 
 #END OF USER STORY
 #RENDER USER STORY BUTTONS
-st.divider()
-st.divider()
-st.divider()
-st.divider()
 st.divider()
 
 #RENDER USE CASE HEADER
@@ -92,7 +86,7 @@ with uc_tx_c1:
 # USE CASE BUTTONS
 uc_bt_c1, uc_bt_c2, uc_bt_c3, uc_bt_c4, uc_bt_c5 = st.columns([25, 25, 25, 25, 25])
 with uc_bt_c1:
-    if st.button("Cгенерировать AC", type="primary", key="uc_bt_generate"):
+    if st.button("Cгенерировать AC", type="secondary", key="uc_bt_generate"):
         #st.session_state["counter"] += 1
         # print("------------------")
         # print(st.session_state.get("tx_first"))
@@ -106,28 +100,28 @@ with uc_bt_c1:
             st.markdown(style, unsafe_allow_html=True)
 
 with uc_bt_c2:
-    if st.button("Улучшить UC", type="primary", key="uc_bt_improve"):
+    if st.button("Улучшить UC", type="secondary", key="uc_bt_improve"):
         st.session_state["counter"] += 1
         us_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["counter"])
         style = "<style>.row-widget.stButton {text-align: center;}</style>"
         st.markdown(style, unsafe_allow_html=True)
 
 with uc_bt_c3:
-    if st.button("Покритиковать UC", type="primary", key="uc_bt_critique"):
+    if st.button("Покритиковать UC", type="secondary", key="uc_bt_critique"):
         st.session_state["counter"] += 1
         us_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["counter"])
         style = "<style>.row-widget.stButton {text-align: center;}</style>"
         st.markdown(style, unsafe_allow_html=True)
 
 with uc_bt_c4:
-    if st.button("Создать AC", type="primary", key="uc_bt_create_UC"):
+    if st.button("Создать AC", type="secondary", key="uc_bt_create_UC"):
         st.session_state["counter"] += 1
         us_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["counter"])
         style = "<style>.row-widget.stButton {text-align: center;}</style>"
         st.markdown(style, unsafe_allow_html=True)
 
 with uc_bt_c5:
-    if st.button("Cохранить", type="primary", key="uc_bt_save"):
+    if st.button("Cохранить", type="secondary", key="uc_bt_save"):
         st.session_state["counter"] += 1
         us_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["counter"])
         style = "<style>.row-widget.stButton {text-align: center;}</style>"
@@ -135,10 +129,9 @@ with uc_bt_c5:
 
 #END OF USE CASE
 st.divider()
-st.divider()
-st.divider()
-st.divider()
-st.divider()
+
+#RENDER USE CASE HEADER
+ac_header()
 
 #ACCEPTANCE CRITERIA TEXT AREA COLUMNS
 ac_tx_c1, ac_tx_c2, ac_tx_c3, ac_tx_c4 = st.columns([8, 0.00001, 0.00001, 0.00001])
@@ -150,42 +143,39 @@ with ac_tx_c1:
 # ACCEPTANCE CRITERIA BUTTONS
 ac_bt_c1, ac_bt_c2, ac_bt_c3, ac_bt_c4, ac_bt_c5 = st.columns([25, 25, 25, 25, 25])
 with ac_bt_c1:
-    if st.button("Cгенерировать AC", type="primary", key="ac_bt_generate"):
-        #st.session_state["counter"] += 1
-        # print("------------------")
-        # print(st.session_state.get("tx_first"))
-        # print("------------------")
+    if st.button("Cгенерировать AC", type="secondary", key="ac_bt_generate"):
         with st.spinner(lc.gt("thinking")):
             res = model_button_response(st.session_state.get("tx-acceptance-criteria-key"),"acceptance-criteria")
             st.session_state["current_us"] = res
-            #print(st.session_state["tx_first"])
             ac_text_area.text_area("", value=st.session_state["current_ac"], height=st.session_state["acceptance_criteria_height"])
             style = "<style>.row-widget.stButton {text-align: center;}</style>"
             st.markdown(style, unsafe_allow_html=True)
 
 with ac_bt_c2:
-    if st.button("Улучшить AC", type="primary", key="ac_bt_improve"):
-        st.session_state["counter"] += 1
-        ac_text_area.text_area("", value=st.session_state["current_ac"], height=st.session_state["acceptance_criteria_height"])
-        style = "<style>.row-widget.stButton {text-align: center;}</style>"
-        st.markdown(style, unsafe_allow_html=True)
+    if st.button("Улучшить AC", type="secondary", key="ac_bt_improve"):
+        with st.spinner(lc.gt("thinking")):
+            res = model_button_response(st.session_state.get("tx-acceptance-criteria-key"),"acceptance-criteria")
+            st.session_state["current_us"] = res
+            ac_text_area.text_area("", value=st.session_state["current_ac"], height=st.session_state["acceptance_criteria_height"])
+            style = "<style>.row-widget.stButton {text-align: center;}</style>"
+            st.markdown(style, unsafe_allow_html=True)
 
 with ac_bt_c3:
-    if st.button("Покритиковать AC", type="primary", key="ac_bt_critique"):
+    if st.button("Покритиковать AC", type="secondary", key="ac_bt_critique"):
         st.session_state["counter"] += 1
         ac_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["acceptance_criteria_height"])
         style = "<style>.row-widget.stButton {text-align: center;}</style>"
         st.markdown(style, unsafe_allow_html=True)
 
 with ac_bt_c4:
-    if st.button("Создать UC", type="primary", key="ac_bt_create_UC"):
+    if st.button("Создать UC", type="secondary", key="ac_bt_create_UC"):
         st.session_state["counter"] += 1
         ac_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["acceptance_criteria_height"])
         style = "<style>.row-widget.stButton {text-align: center;}</style>"
         st.markdown(style, unsafe_allow_html=True)
 
 with ac_bt_c5:
-    if st.button("Cохранить", type="primary", key="ac_bt_save"):
+    if st.button("Cохранить", type="secondary", key="ac_bt_save"):
         st.session_state["counter"] += 1
         ac_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["acceptance_criteria_height"])
         style = "<style>.row-widget.stButton {text-align: center;}</style>"
@@ -194,11 +184,6 @@ with ac_bt_c5:
 #END OF USER STORY
 #RENDER USER STORY BUTTONS
 st.divider()
-st.divider()
-st.divider()
-st.divider()
-st.divider()
-
 
 #DEBUG
 st.write('session_state.keys')
