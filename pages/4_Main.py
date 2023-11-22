@@ -34,7 +34,6 @@ with us_bt_c1:
         with st.spinner(lc.gt("thinking")):
             res = model_button_response(st.session_state.get("tx-user-story-key"),"user-story")
             st.session_state["current_us"] = res
-            st.session_state['tx-user-story-key-improved'] = res
             us_text_area.text_area("", value=st.session_state["current_us"], height=st.session_state["user_story_height"])
             style = "<style>.row-widget.stButton {text-align: center;}</style>"
             st.markdown(style, unsafe_allow_html=True)
@@ -57,10 +56,12 @@ with us_bt_c2:
 
 with us_bt_c4:
     if st.button("Создать UC", type="secondary", key="us_bt_create_UC"):
-        st.session_state["counter"] += 1
-        us_text_area.text_area("", value=st.session_state["counter"], height=st.session_state["counter"])
-        style = "<style>.row-widget.stButton {text-align: center;}</style>"
-        st.markdown(style, unsafe_allow_html=True)
+        with st.spinner(lc.gt("thinking")):
+            res = model_generate_uc()
+            st.session_state["generated_uс"] = res
+            #us_text_area.text_area("", value=st.session_state["improved_us"], height=st.session_state["user_story_height"])
+            style = "<style>.row-widget.stButton {text-align: center;}</style>"
+            st.markdown(style, unsafe_allow_html=True)
 
 # with us_bt_c5:
 #     if st.button("Cохранить", type="secondary", key="us_bt_save"):
@@ -81,7 +82,7 @@ uc_tx_c1, uc_tx_c2, uc_tx_c3, uc_tx_c4 = st.columns([8, 0.00001, 0.00001, 0.0000
 with uc_tx_c1:
     uc_text_area = st.empty()
     uc_text_area.text_area(label="", height=st.session_state["use_case_height"],
-                           placeholder=st.session_state["use_case_placeholder"], key="tx-use-case-key", on_change=clear_chat_history())
+                           value=st.session_state["generated_uс"], key="tx-use-case-key", on_change=clear_chat_history())
 
 # USE CASE BUTTONS
 uc_bt_c1, uc_bt_c2, uc_bt_c3, uc_bt_c4, uc_bt_c5 = st.columns([25, 25, 25, 25, 25])

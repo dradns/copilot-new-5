@@ -48,6 +48,9 @@ def set_session_variables():
         st.session_state["improved_us"] = ""
     if "tx-user-story-key-improved" not in st.session_state.keys():
         st.session_state["tx-user-story-key-improved"] = ""
+    if "generated_uс" not in st.session_state.keys():
+        st.session_state["generated_uс"] = ""
+
 
     if "use_case_placeholder" not in st.session_state.keys():
         st.session_state["use_case_placeholder"] = use_case_placeholder
