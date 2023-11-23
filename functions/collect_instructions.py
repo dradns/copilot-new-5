@@ -26,7 +26,7 @@ def collect_instructions_ch():
     chat_role = pt.gp("chat-role")
     do_not_pretend = pt.gp("do-not-pretend")
     length_instruction = pt.gp("chat-length-instructions")
-    string_instructions = chat_role + do_not_pretend+ length_instruction
+    string_instructions = chat_role + do_not_pretend + length_instruction
 
     return string_instructions
 

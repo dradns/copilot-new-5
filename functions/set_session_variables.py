@@ -48,17 +48,22 @@ def set_session_variables():
         st.session_state["improved_us"] = ""
     if "tx-user-story-key-improved" not in st.session_state.keys():
         st.session_state["tx-user-story-key-improved"] = ""
+
+    # SET UС content
     if "generated_uс" not in st.session_state.keys():
         st.session_state["generated_uс"] = ""
-
-
     if "use_case_placeholder" not in st.session_state.keys():
         st.session_state["use_case_placeholder"] = use_case_placeholder
+    if "improved_uс" not in st.session_state.keys():
+        st.session_state["improved_uс"] = ""
+
+    # SET AС content
     if "acceptance_criteria_placeholder" not in st.session_state.keys():
         st.session_state["acceptance_criteria_placeholder"] = acceptance_criteria_placeholder
-    # SET US quill content
-    if "use_case_quill_content" not in st.session_state.keys():
-        st.session_state["use_case_quill_content"] = ""
+    if "generated_aс" not in st.session_state.keys():
+        st.session_state["generated_aс"] = ""
+    if "improved_aс" not in st.session_state.keys():
+        st.session_state["improved_aс"] = ""
 
     if "counter" not in st.session_state.keys():
         st.session_state["counter"] = 300

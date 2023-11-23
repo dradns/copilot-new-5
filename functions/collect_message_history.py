@@ -13,7 +13,7 @@ def map_session_state(page_name):
     elif page_name == 'acceptance-criteria':
         return st.session_state.messages_ac
     elif page_name == 'chat':
-        return st.session_state.chat_history
+        return st.session_state.messages_chat
 
 #collecting context
 def collect_message_history(user_prompt, page_name):
