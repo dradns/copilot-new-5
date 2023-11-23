@@ -48,6 +48,8 @@ def set_session_variables():
         st.session_state["improved_us"] = ""
     if "tx-user-story-key-improved" not in st.session_state.keys():
         st.session_state["tx-user-story-key-improved"] = ""
+    if "current_us" not in st.session_state.keys():
+        st.session_state["current_us"] = ""
 
     # SET UС content
     if "generated_uс" not in st.session_state.keys():

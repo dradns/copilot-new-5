@@ -6,28 +6,28 @@ def on_input_change():
     user_input = st.session_state.user_input
     st.session_state.responses.append(user_input)
 
-def on_btn_click():
-    del st.session_state['questions']
-    del st.session_state['responses']
-
-st.session_state.setdefault('questions', [])
-
-st.title("Survey QA Bot")
-questions_list = ['question 1', 'question 2', 'question 3']
-#response_list = ['res 1']
-st.warning(lc.gt("user-story-lets-write"))
-st.error('Error message')
-st.warning('Warning message')
-st.divider()
-st.info('Info message')
-st.success('Success message')
-
-if 'responses' not in st.session_state.keys():
-    st.session_state.questions.extend(questions_list)
-    st.session_state.responses = ['res 1']
-
-chat_placeholder = st.empty()
-st.button("Clear message", on_click=on_btn_click)
+# def on_btn_click():
+#     del st.session_state['questions']
+#     del st.session_state['responses']
+#
+# st.session_state.setdefault('questions', [])
+#
+# st.title("Survey QA Bot")
+# questions_list = ['question 1', 'question 2', 'question 3']
+# #response_list = ['res 1']
+# st.warning(lc.gt("user-story-lets-write"))
+# st.error('Error message')
+# st.warning('Warning message')
+# st.divider()
+# st.info('Info message')
+# st.success('Success message')
+#
+# if 'responses' not in st.session_state.keys():
+#     st.session_state.questions.extend(questions_list)
+#     st.session_state.responses = ['res 1']
+#
+# chat_placeholder = st.empty()
+# st.button("Clear message", on_click=on_btn_click)
 
 
 # for question in st.session_state.questions:
