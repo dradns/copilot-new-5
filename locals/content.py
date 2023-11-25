@@ -5,6 +5,7 @@ class Content:
         "test": "ENG-con",
         #TOOLS
         "thinking": "Thinking...",
+        "say-hi": "Hi! I'm your personal assistant",
 
 
 
@@ -44,6 +45,7 @@ class Content:
         "test": "RUS-con",
         # TOOLS
         "thinking": "Думаю...",
+        "say-hi": "Привет! Я твой персональный ассистент!",
 
         # USER STORY PAGE
         "user-story-title": "Пользовательская история",

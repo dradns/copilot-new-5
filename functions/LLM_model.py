@@ -8,18 +8,20 @@ from functions.collect_instructions import *
 from functions.collect_message_history import *
 
 def model_improve_us():
-    #1. собрать взять нужную инструкцию в зависимости от языка
-    #2. собрать историю сообщений
-    system_template = """Ты в роли бизнес аналитика. Предложи один вариант улучшения Пользовательской истории, которую ввел пользователь.
-    Не отвечай от лица 'Пользователь' и не притворяйся 'Пользователь'. Ты будешь отвечать только как 'Ассистент'.
+    system_template = """Предложи один вариант улучшения Пользовательской истории, которую ввел пользователь.
     Пользовательская история это короткое простое описание фунционала, описанное от лица ПЕРСОНЫ, которая желает получить новые возможности системы.
     Как пользователь <тип ПОЛЬЗОВАТЕЛЯ>, Я хочу <такую-то ЦЕЛЬ> для того чтобы <определенная ПРИЧИНА/ПОТРЕБНОСТЬ >.
     Отвечай ТОЛЬКО на РУССКОМ языке.
-    Ты должен ответить не больше чем одним параграфом.
+    
+    Пример1:
+    "Как любитель путешествий Я хочу искать и бронировать экскурсии онлайн Для удобства планирования путешествий"
+    
+    Пример2: 
+    "Как вегетарианец Я хочу находить рецепты вегетарианских блюд Чтобы разнообразить свой рацион и облегчить процесс приготовления еды"
     """
-    string_instructions_append_role = "Система: " + system_template + " "
-    current_user_story_append_role = "Пользователь: " + st.session_state.get("tx-user-story-key")   #st.session_state["improved_us"]
-    total_string = string_instructions_append_role + current_user_story_append_role
+    string_instructions_append_role = "<<SYS>> " + system_template + " <</SYS>> "
+    current_user_story_append_role = "User: " + st.session_state.get("tx-user-story-key")   #st.session_state["improved_us"]
+    total_string = "[INST] " + string_instructions_append_role + current_user_story_append_role + "[/INST]"
     print('--------------')
     print('--------------')
     print('total_string')
